@@ -66,7 +66,7 @@ def action_suggest(tracker):
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/hi', methods=['GET'])
 def api_root():
     return 'Welcome to the chatbot from hell'
 
@@ -75,6 +75,8 @@ def api_gh_message():
     # main_db = get_db()
     # print()
     return action_suggest(request.json)
+
+
 
 # if __name__ == '__main__':
 #     # main_db = get_db()
