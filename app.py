@@ -9,8 +9,6 @@ full_results = []
 def get_db():
 
     x = requests.get('https://40435.wayscript.io/main')
-    # print("HERE")
-    # print(x.json())
 
     return x.json()
 
