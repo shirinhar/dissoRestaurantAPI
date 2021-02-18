@@ -3,8 +3,6 @@ from flask import Flask
 import requests
 import json
 
-full_results = []
-# main_db = {}
 
 def get_db():
 
@@ -74,9 +72,3 @@ def api_gh_message():
     # print()
     return action_suggest(request.json)
 
-
-
-# if __name__ == '__main__':
-#     # main_db = get_db()
-#     # print("Here")
-#     app.run(debug=True)
