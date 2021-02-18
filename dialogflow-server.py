@@ -4,12 +4,13 @@ import requests
 import json
 
 full_results = []
-main_db = {}
+# main_db = {}
 
 def get_db():
 
     x = requests.get('https://40435.wayscript.io/main')
-    print(x.json())
+    # print("HERE")
+    # print(x.json())
 
     return x.json()
 
@@ -32,6 +33,7 @@ def get_corresponding_value(params):
 
     res = []
 
+    main_db = get_db()
 
     for k, val in main_db.items():
         full_match = True
@@ -56,10 +58,10 @@ def action_suggest(tracker):
         for r in full_results:
 
             return json.dumps({"name": r['name'], "phone": r['phone'], "address": r['addr']})
-        # return ret
 
 
-    return {}
+
+    return json.dumps({})
 
 
 app = Flask(__name__)
@@ -70,9 +72,11 @@ def api_root():
 
 @app.route('/get_reccomendations', methods=['POST'])
 def api_gh_message():
+    # main_db = get_db()
     # print()
     return action_suggest(request.json)
 
 if __name__ == '__main__':
-    main_db = get_db()
+    # main_db = get_db()
+    # print("Here")
     app.run(debug=True)
